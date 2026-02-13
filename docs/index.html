@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Launchpad Mini [MK3] Lightshow Studio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+        :root {
+            --bg-color: #0a0a0a;
+            --surface-color: #1a1a1a;
+            --accent-color: #00ff9d;
+            --text-color: #ffffff;
+            --secondary-text: #a0a0a0;
+            --pad-glow: 0 0 20px rgba(0, 255, 157, 0.4);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- HERO SECTION --- */
+        header {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
+            position: relative;
+        }
+
+        .hero-content {
+            z-index: 2;
+            max-width: 800px;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #00ff9d, #00d2ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        p.lead {
+            font-size: 1.25rem;
+            color: var(--secondary-text);
+            margin-bottom: 2.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background: var(--accent-color);
+            color: #000;
+            box-shadow: 0 0 20px rgba(0, 255, 157, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 40px rgba(0, 255, 157, 0.6);
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--secondary-text);
+            color: var(--secondary-text);
+            margin-left: 1rem;
+        }
+
+        .btn-secondary:hover {
+            border-color: #fff;
+            color: #fff;
+        }
+
+        /* --- FEATURES SECTION --- */
+        .features {
+            padding: 5rem 2rem;
+            background: var(--surface-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--accent-color);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        /* --- SCREENSHOTS --- */
+        .showcase {
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .screenshot-wrapper {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: 0.3s;
+        }
+
+        .screenshot-wrapper:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+        }
+
+        .screenshot-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 3rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--secondary-text);
+        }
+
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .btn { width: 100%; margin: 0.5rem 0; text-align: center; box-sizing: border-box; } 
+            .btn-secondary { margin-left: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="hero-content">
+            <h1>Launchpad Lightshow Studio</h1>
+            <p class="lead">Unleash the full potential of your Novation Launchpad Mini [MK3]. Create stunning lightshows, execute real-time animations, and generate SysEx commands directly in your browser.</p>
+            <div>
+                <a href="https://github.com/toniaczlog/launchpad-mk3-lightshow-studio" class="btn btn-primary">View on GitHub</a>
+                <a href="#showcase" class="btn btn-secondary">See Screenshots</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="features">
+        <div class="container">
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔌</div>
+                    <div class="feature-title">Web MIDI Integration</div>
+                    <p>Connect instantly without installing drivers. The app automatically handles Programmer Mode switching (SysEx <code>0E 01</code>) for seamless control.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <div class="feature-title">Advanced Painter</div>
+                    <p>Design your grid with Static, Flash (hardware accelerated), and Pulse lighting modes. Access the full 127-color Novation palette.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🕹️</div>
+                    <div class="feature-title">14+ Key Animations</div>
+                    <p>Trigger complex procedural effects like Matrix Rain, Heartbeat, and Snake. Our engine prevents ghosting with smart buffer clearing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="showcase" class="showcase">
+        <div class="container">
+            <h2>Visual Showcase</h2>
+            <p style="color: var(--secondary-text);">Explore the interface and capabilities.</p>
+            <div class="gallery">
+                <div class="screenshot-wrapper">
+                    <img src="./screen1.png" alt="Main Interface - Dark Mode">
+                </div>
+                <div class="screenshot-wrapper">
+                    <img src="./screen2.png" alt="Animation Controls & Palette">
+                </div>
+                <div class="screenshot-wrapper">
+                    <img src="./screen3.png" alt="SysEx Command Generator">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Built with ❤️ using Vanilla JS & Web MIDI API.</p>
+        <p>
+            <a href="https://github.com/toniaczlog/launchpad-mk3-lightshow-studio">GitHub Repository</a> | 
+            Created by <a href="https://github.com/toniaczlog">toniaczlog</a>
+        </p>
+    </footer>
+
+</body>
+</html>
